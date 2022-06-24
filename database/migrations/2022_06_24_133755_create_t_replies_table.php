@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_password_resets', function (Blueprint $table) {
-            $table->string('email')->index()->collation('utf8mb4_general_ci');
-            $table->string('token');
+        Schema::create('t_replies', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('shout_id');
             $table->dateTime('created_at')->useCurrent();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_password_resets');
+        Schema::dropIfExists('t_replies');
     }
 };

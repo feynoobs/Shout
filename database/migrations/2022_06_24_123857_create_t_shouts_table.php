@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id')->nullable()->comment('埋め込み時に親の値を入れる');
             $table->string('shout');
+            $table->unsignedBigInteger('replies')->default(0);
+            $table->unsignedBigInteger('favorites')->default(0);
             $table->dateTime('deleted_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
