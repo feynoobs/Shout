@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\TopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Front'], function() {
-    Route::get('/', function () {
-        return view('welcome')->name('login');
-    });
-    Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['web']], function() {
+    Route::group(['namespace' => 'Front'], function() {
+        Route::get('/', [TopController::class, 'index']);
+        Route::group(['middleware' => ['auth']], function() {
+        });
     });
 });
 /*
