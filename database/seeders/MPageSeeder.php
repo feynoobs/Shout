@@ -9,7 +9,7 @@ use App\Models\MPage;
 class MPageSeeder extends Seeder
 {
     private array $pages = [
-        ['parent_id' => null, 'name' => 'front.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'ogp_image' => 'OGP.JPG', 'is_index' => 1],
+        ['parent_id' => null, 'name' => 'front.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'ogp_is_original_image' => '1', 'is_index' => 1],
     ];
     /**
      * Run the database seeds.

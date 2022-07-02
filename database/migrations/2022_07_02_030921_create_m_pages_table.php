@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('description');
 
             $table->string('ogp_type');
-            $table->string('ogp_image')->nullable();
+            $table->string('ogp_is_original_image')->default(1);
 
             $table->unsignedTinyInteger('is_index')->default(1);
 

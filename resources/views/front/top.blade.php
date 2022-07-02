@@ -5,5 +5,5 @@
 @endsection
 
 @section('js')
-    <script src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
 @endsection

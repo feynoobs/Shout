@@ -12,7 +12,7 @@ class MPage extends Model
         'title',
         'description',
         'ogp_type',
-        'ogp_image',
+        'ogp_is_original_image',
         'is_index',
         'is_follow'
     ];
