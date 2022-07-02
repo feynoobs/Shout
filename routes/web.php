@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['web']], function() {
     Route::group(['namespace' => 'Front'], function() {
-        Route::get('/', [TopController::class, 'index']);
+        Route::get('/', [TopController::class, 'index'])->name('front.top.index');
         Route::group(['middleware' => ['auth']], function() {
         });
     });

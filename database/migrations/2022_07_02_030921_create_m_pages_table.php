@@ -20,13 +20,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
 
-            $table->string('ogp_title');
-            $table->string('ogp_description');
             $table->string('ogp_type');
             $table->string('ogp_image')->nullable();
 
             $table->unsignedTinyInteger('is_index')->default(1);
-            $table->unsignedTinyInteger('is_follow')->default(1);
 
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
