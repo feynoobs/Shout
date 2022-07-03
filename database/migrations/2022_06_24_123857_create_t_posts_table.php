@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_personal_access_tokens', function (Blueprint $table) {
+        Schema::create('t_posts', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
-            $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->dateTime('last_used_at')->nullable();
+            $table->unsignedBigInteger('cast_id');
+            $table->text('text');
+            $table->dateTime('deleted_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_personal_access_tokens');
+        Schema::dropIfExists('t_posts');
     }
 };

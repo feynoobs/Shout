@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_images', function (Blueprint $table) {
+        Schema::create('t_gravures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('shout_id');
-            $table->string('name');
-            $table->unsignedTinyInteger('sort');
+            $table->unsignedBigInteger('cast_id');
+            $table->text('text');
+            $table->dateTime('deleted_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_images');
+        Schema::dropIfExists('t_gravures');
     }
 };

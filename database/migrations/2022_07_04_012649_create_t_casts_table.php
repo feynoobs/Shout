@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_shouts', function (Blueprint $table) {
+        Schema::create('t_casts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('parent_id')->nullable()->comment('埋め込み時に親の値を入れる');
-            $table->string('shout');
-            $table->unsignedBigInteger('replies')->default(0);
-            $table->unsignedBigInteger('favorites')->default(0);
+            $table->string('name');
+            $table->date('birthday')->nullable();
+            $table->unsignedTinyInteger('tall')->nullable();
+            $table->unsignedTinyInteger('bust')->nullable();
+            $table->unsignedTinyInteger('waist')->nullable();
+            $table->unsignedTinyInteger('blood')->nullable();
+            $table->unsignedTinyInteger('cup')->nullable();
+            $table->unsignedBigInteger('sort');
+
             $table->dateTime('deleted_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
@@ -33,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_shouts');
+        Schema::dropIfExists('t_casts');
     }
 };

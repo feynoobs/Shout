@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_replies', function (Blueprint $table) {
+        Schema::create('t_post_images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('shout_id');
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('sort');
             $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_replies');
+        Schema::dropIfExists('t_post_images');
     }
 };
