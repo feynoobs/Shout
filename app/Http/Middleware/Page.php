@@ -31,14 +31,15 @@ class Page
      */
     public function handle(Request $request, Closure $next)
     {
-        $pageData = MPage
-            ::where('name', '=', $request->route()->getName())
-            ->firstOrFail();
-        $pageData->canonical = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-        $pageData->ogp_url = $pageData->canonical;
-        if (intval($pageData->ogp_is_original_image) === 1) {
+        if ($request->method() === 'GET') {
+            $pageData = MPage
+                ::where('name', '=', $request->route()->getName())
+                ->firstOrFail();
+            $pageData->canonical = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+            $pageData->ogp_url = $pageData->canonical;
+
+            $this->factory->share('pageData', $pageData);
         }
-        $this->factory->share('pageData', $pageData);
 
         return $next($request);
     }

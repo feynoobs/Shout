@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TUser;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            MPageSeeder::class
+            MPageSeeder::class,
+            TUserSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
