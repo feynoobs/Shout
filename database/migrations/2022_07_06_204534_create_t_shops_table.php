@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_cast_images', function (Blueprint $table) {
+        Schema::create('t_shops', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cast_id');
-            $table->unsignedBigInteger('sort');
+            $table->string('name');
             $table->dateTime('created_at')->useCurrent();
-
-            $table->unique(['cast_id', 'sort']);
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_cast_images');
+        Schema::dropIfExists('t_shops');
     }
 };

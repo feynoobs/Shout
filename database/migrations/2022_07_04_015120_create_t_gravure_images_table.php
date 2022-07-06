@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('sort');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
+
+            $table->unique(['gravure_id', 'sort']);
         });
     }
 
