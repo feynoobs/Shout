@@ -13,13 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_cast_images', function (Blueprint $table) {
+        Schema::create('t_courses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cast_id');
+            $table->unsignedBigInteger('shop_id');
             $table->unsignedBigInteger('sort');
+            $table->string('title');
+            $table->text('body');
+            $table->unsignedMediumInteger('price');
+            $table->unsignedTinyInteger('image')->default(0)->comment('画像有無 0:画像なし/1:画像あり');
             $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
 
-            $table->unique(['cast_id', 'sort']);
+            $table->unique(['shop_id', 'sort']);
+
         });
     }
 
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_cast_images');
+        Schema::dropIfExists('t_courses');
     }
 };
