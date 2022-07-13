@@ -13,18 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_courses', function (Blueprint $table) {
+        Schema::create('m_prefs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('shop_id');
-            $table->unsignedBigInteger('sort');
-            $table->string('title');
-            $table->text('body');
-            $table->unsignedMediumInteger('price');
+            $table->string('name');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
-
-            $table->unique(['shop_id', 'sort']);
-
         });
     }
 
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_courses');
+        Schema::dropIfExists('m_prefs');
     }
 };
