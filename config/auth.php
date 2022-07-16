@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'users',
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,13 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'users' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'admins' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -62,7 +66,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\TUser::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\TAdmin::class,
         ],
 
         // 'users' => [

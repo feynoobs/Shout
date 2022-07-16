@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['web']], function() {
-    Route::group(['namespace' => 'Front'], function() {
-        Route::get('/', [TopController::class, 'index'])->name('front.top.index');
-        Route::post('/top/login/', [TopController::class, 'login'])->name('front.top.login');
-        Route::group(['middleware' => ['auth']], function() {
+    Route::group(['namespace' => 'Front', 'as' => 'front.'], function() {
+        Route::get('/', [TopController::class, 'index'])->name('top.index');
+        Route::post('/top/login/', [TopController::class, 'login'])->name('top.login');
+        Route::group(['middleware' => ['auth:front']], function() {
+        });
+    });
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+        Route::group(['middleware' => ['auth:admin']], function() {
         });
     });
 });
