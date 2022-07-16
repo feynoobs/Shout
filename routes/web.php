@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Front\TopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['web']], function() {
-    Route::group(['namespace' => 'Front', 'as' => 'front.'], function() {
-        Route::get('/', [TopController::class, 'index'])->name('top.index');
-        Route::post('/top/login/', [TopController::class, 'login'])->name('top.login');
-        Route::group(['middleware' => ['auth:front']], function() {
+    Route::group(['namespace' => 'App\Http\Controllers\Front', 'as' => 'front.'], function() {
+        Route::get('/', 'TopController@index')->name('top.index');
+        Route::post('/top/login/', 'TopController@login')->name('top.login');
+        Route::group(['middleware' => ['auth:users']], function() {
         });
     });
-    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
-        Route::group(['middleware' => ['auth:admin']], function() {
+    Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+        Route::get('/', 'TopController@index')->name('top.index');
+        Route::post('/top/login/', 'TopController@login')->name('top.login');
+        Route::group(['middleware' => ['auth:admins']], function() {
         });
     });
 });

@@ -10,6 +10,7 @@ class MPageSeeder extends Seeder
 {
     private array $pages = [
         ['parent_id' => null, 'name' => 'front.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'is_index' => 1],
+        ['parent_id' => null, 'name' => 'admin.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'is_index' => 0],
     ];
     /**
      * Run the database seeds.
