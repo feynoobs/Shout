@@ -1,7 +1,7 @@
 @extends('front.root')
 
 @section('css')
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/admin/login.css">
 @endsection
 
 @section('content')
@@ -10,13 +10,16 @@
             <img src="storage/site/banner.png" alt="ロゴ画像">
         </div>
         <div class="center">
-            <form method="post" action="{{ route('front.top.login') }}">
+            <form method="post" action="{{ route('admin.top.login') }}">
                 @csrf
                 <div class="item">
-                    <input class="field" type="email" name="email" required value="{{ old('email') }}" placeholder="example@example.com">
+                    <input class="field" type="number" name="id" required value="{{ old('id') }}" placeholder="ID">
                 </div>
                 <div class="item">
                     <input class="field" type="text" name="password" required value="{{ old('password') }}" placeholder="password">
+                </div>
+                <div class="item">
+                    <label for="keep">ログインを保持する</label><input type="checkbox" name="keep" id="keep" value="1" checked>
                 </div>
                 <input class="button" type="submit">
             </form>

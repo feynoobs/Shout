@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MPageSeeder::class,
             TUserSeeder::class,
-            TAminSeeder::class
+            TAdminSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
