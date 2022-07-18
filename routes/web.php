@@ -24,6 +24,7 @@ Route::group(['middleware' => ['web']], function() {
         Route::get('/', 'TopController@index')->name('top.index');
         Route::post('/top/login/', 'TopController@login')->name('top.login');
         Route::group(['middleware' => ['auth:admins']], function() {
+            Route::get('/dashbord', 'TopController@dashbord')->name('top.dashbord');
         });
     });
 });

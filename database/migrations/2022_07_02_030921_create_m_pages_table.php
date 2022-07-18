@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('name')->unique();
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
 
-            $table->string('ogp_type');
+            $table->string('ogp_type')->nullable();
 
             $table->unsignedTinyInteger('is_index')->default(1);
 

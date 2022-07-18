@@ -20,13 +20,21 @@ class TopController extends Controller
     {
         $authData = $request->validate([
             'id' => 'required|integer',
-            'password' => 'required|string'
+            'password' => 'required|string',
+            'keep' => 'required|integer|boolean',
         ]);
         $ret = back();
-        if (Auth::guard('admins')->attempt($authData)) {
-            $ret = redirect()->route('home');
+        $keep = intval($authData['keep']) === 1 ? true : false;
+        unset($authData['keep']);
+        if (Auth::guard('admins')->attempt($authData, $keep)) {
+            $ret = redirect()->route('admin.top.dashbord');
         }
 
         return $ret;
+    }
+
+    public function dashbord(Request $request) : View
+    {
+        return view('admin.dashbord');
     }
 }

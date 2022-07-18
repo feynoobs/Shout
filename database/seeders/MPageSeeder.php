@@ -9,8 +9,9 @@ use App\Models\MPage;
 class MPageSeeder extends Seeder
 {
     private array $pages = [
-        ['parent_id' => null, 'name' => 'front.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'is_index' => 1],
-        ['parent_id' => null, 'name' => 'admin.top.index', 'title' => 'タイトル', 'description' => '詳細', 'ogp_type' => 'website', 'is_index' => 0],
+        ['parent_id' => null, 'name' => 'front.top.index',    'title' => 'タイトル',      'description' => '詳細', 'ogp_type' => 'website', 'is_index' => 1],
+        ['parent_id' => null, 'name' => 'admin.top.index',    'title' => 'タイトル',       'description' => null,   'ogp_type' => null,     'is_index' => 0],
+        ['parent_id' => null, 'name' => 'admin.top.dashbord', 'title' => 'ダッシュボード', 'description' => null,   'ogp_type' => null,     'is_index' => 0],
     ];
     /**
      * Run the database seeds.
