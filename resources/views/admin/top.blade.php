@@ -1,4 +1,4 @@
-@extends('front.root')
+@extends('admin.root')
 
 @section('css')
     <link rel="stylesheet" href="css/admin/login.css">
@@ -34,5 +34,4 @@
 @endsection
 
 @section('js')
-    <script src="js/app.js" defer></script>
 @endsection
