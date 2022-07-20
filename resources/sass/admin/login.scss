@@ -18,3 +18,16 @@ div.item {
 input.field {
     text-align: left;
 }
+
+div.flex {
+    display: flex;
+}
+
+div.sidemenu {
+    width: 256px;
+}
+
+div.main {
+    width: 256px;
+    width: calc(100% - 256px);
+}

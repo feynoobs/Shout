@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('m_pages', function (Blueprint $table) {
+        Schema::create('m_manage_pages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('name')->unique();
             $table->string('title');
-            $table->string('description')->nullable();
 
-            $table->string('ogp_type')->nullable();
-
-            $table->unsignedTinyInteger('is_index')->default(1);
+            $table->unsignedTinyInteger('group')->default(1);
+            $table->unsignedTinyInteger('is_sidemenu')->default(1);
 
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
@@ -36,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_pages');
+        Schema::dropIfExists('m_manage_pages');
     }
 };

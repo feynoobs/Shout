@@ -6,9 +6,9 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\View\Factory;
 
-use App\Models\MPage;
+use App\Models\MFrontPage;
 
-class Page
+class FrontPage
 {
     private Factory $factory;
 
@@ -32,7 +32,7 @@ class Page
     public function handle(Request $request, Closure $next)
     {
         if ($request->method() === 'GET') {
-            $pageData = MPage
+            $pageData = MFrontPage
                 ::where('name', '=', $request->route()->getName())
                 ->firstOrFail();
             $pageData->canonical = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];

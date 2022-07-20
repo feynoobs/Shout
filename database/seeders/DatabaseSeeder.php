@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            MPageSeeder::class,
             TUserSeeder::class,
-            TAdminSeeder::class
+            TAdminSeeder::class,
+            MFrontPageSeeder::class,
+            MManagePageSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

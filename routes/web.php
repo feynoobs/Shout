@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['web']], function() {
-    Route::group(['namespace' => 'App\Http\Controllers\Front', 'as' => 'front.'], function() {
+    Route::group(['middleware' => ['front'], 'namespace' => 'App\Http\Controllers\Front', 'as' => 'front.'], function() {
         Route::get('/', 'TopController@index')->name('top.index');
         Route::post('/top/login/', 'TopController@login')->name('top.login');
         Route::group(['middleware' => ['auth:users']], function() {
         });
     });
-    Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+    Route::group(['middleware' => ['manage'], 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::get('/', 'TopController@index')->name('top.index');
         Route::post('/top/login/', 'TopController@login')->name('top.login');
         Route::group(['middleware' => ['auth:admins']], function() {

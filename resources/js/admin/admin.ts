@@ -6,6 +6,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import { createApp } from 'vue';
 import banner from './banner.vue';
+import sidemenu from './sidemenu.vue';
+
 const app = createApp({});
-app.component('my-banner', banner);
+app.component('banner', banner);
+app.component('sidemenu', sidemenu);
 app.mount('#app');

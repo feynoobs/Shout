@@ -1,12 +1,20 @@
 <template>
-    <div>{{ test }}</div>
+<div class="wrap">
+    <img v-bind:src="props.banner">
+</div>
 </template>
 
 <script lang="ts" setup>
-const test: String = 'aaaa';
+const props = defineProps({
+    banner: String
+});
 </script>
 
 <script lang="ts">
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrap {
+    text-align: center;
+}
+</style>

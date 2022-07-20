@@ -6,10 +6,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number] {
 }
 
 input[type=checkbox] {
-    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
     cursor: pointer;
-    display: inline-block;
-    width: auto;
-    margin: .4rem;
-    transform:scale(2.0);
 }
